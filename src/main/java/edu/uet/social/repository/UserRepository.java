@@ -5,9 +5,11 @@ import edu.uet.social.entity.Post;
 import edu.uet.social.entity.User;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByEmail(String email);
 
@@ -20,8 +22,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findUsersByLikedPosts(Post post, Pageable pageable);
 
     List<User> findUsersByLikedComments(Comment comment, Pageable pageable);
-
-    void getAllUsers();
 
 
 }
